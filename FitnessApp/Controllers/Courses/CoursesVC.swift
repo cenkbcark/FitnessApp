@@ -19,9 +19,7 @@ final class CoursesVC: UIViewController {
         super.viewDidLoad()
         
         setCourses()
-
-        
-        
+  
     }
     
     func setCourses(){
