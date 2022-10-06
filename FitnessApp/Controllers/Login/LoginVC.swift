@@ -9,9 +9,6 @@ import UIKit
 
 final class LoginVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
-    @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak private var startButton: UIButton!
     //TextFields
     @IBOutlet weak var weightTextField: UITextField!
@@ -20,13 +17,12 @@ final class LoginVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     
     private var heightPickerView: UIPickerView?
     private var weightPickerView: UIPickerView?
-    private var heightList:[String] = [String]()
-    private var weightList:[String] = [String]()
+    private var heightList:[Int] = [Int]()
+    private var weightList:[Int] = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.isHidden = true
-        startButton.layer.cornerRadius = 20
+        
         //LIST DATA
         setNumberForHeightList()
         setNumberForWeightList()
@@ -64,22 +60,25 @@ final class LoginVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
         
         switch pickerView {
         case heightPickerView:
-            return heightList[row]
+            return String(heightList[row])
         case weightPickerView:
-            return weightList[row]
+            return String(weightList[row])
         default:
             return ""
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         switch pickerView {
         case heightPickerView:
-            heightTextField.text = heightList[row]
-            UserData.shared.userHeight = heightTextField.text ?? "Unknown"
+            heightTextField.text = String(heightList[row])
+            UserData.shared.userHeight = Int(heightTextField.text!)
+            
         case weightPickerView:
-            weightTextField.text = weightList[row]
-            UserData.shared.userWeight = weightTextField.text ?? "Unknown"
+            weightTextField.text = String(weightList[row])
+            UserData.shared.userWeight = Int(weightTextField.text!)
+            
         default:
             return
         }
@@ -87,13 +86,13 @@ final class LoginVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
 
     private func setNumberForHeightList(){
         for number in 120...220{
-            heightList.append("\(number)")
+            heightList.append(number)
         }
     }
     
     private func setNumberForWeightList(){
         for number in 40...120 {
-            weightList.append("\(number)")
+            weightList.append(number)
         }
     }
     
@@ -131,17 +130,8 @@ final class LoginVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     
     @IBAction private func getStartedBtn(_ sender: Any) {
         
-        UserData.shared.userName = nameTextField.text ?? "Unknown"
-        
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
-        infoLabel.isHidden = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
-            self.performSegue(withIdentifier: "getStarted", sender: nil)
-         }
+        UserData.shared.name = nameTextField.text ?? "Unknown"
+        self.performSegue(withIdentifier: "getStarted", sender: nil)
     }
     
 }

@@ -2,18 +2,18 @@
 //  UserData.swift
 //  FitnessApp
 //
-//  Created by Cenk Bahadır Çark on 28.09.2022.
+//  Created by Cenk Bahadır Çark on 4.10.2022.
 //
 
 import Foundation
 
-class UserData{
+
+class UserData {
     
     static let shared = UserData()
     
-    var userName = ""
-    var userWeight = ""
-    var userHeight = ""
+    var name = ""
+    var userHeight : Int?
+    var userWeight : Int?
     
-    
-}
+    }

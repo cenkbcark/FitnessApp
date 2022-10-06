@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class DashboardVC: UIViewController {
     //UIVIEW
@@ -13,42 +14,73 @@ final class DashboardVC: UIViewController {
     @IBOutlet weak private var caloriesView: UIView!
     @IBOutlet weak private var stepView: UIView!
     
-    var waterImages : [UIImage] = []
+    @IBOutlet weak var bmiView: UIView!
+    @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var navBar: UINavigationItem!
+    //
+    @IBOutlet weak var bimLbl: UILabel!
+    @IBOutlet weak var bimView: UIImageView!
+    //Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //UI View Configuration
         configureView()
-        waterImages = createImageArray(total: 40, imagePrefix: "water")
+        navBar.titleView?.tintColor = .black
+        navBar.title = UserData.shared.name
+        let bmi = calculateBmi(mass: UserData.shared.userWeight!, height: UserData.shared.userHeight!)
+        bimView.image = UIImage(named: bmi)
+        bimLbl.text = bmi
+        
         
         
         
     }
     
-    private func configureView(){
-        stepView.layer.cornerRadius = 67
-        caloriesView.layer.cornerRadius = 67
-        bpmView.layer.cornerRadius = 67
+    override func viewWillAppear(_ animated: Bool) {
+        setupAnimation()
     }
     
-    private func createImageArray(total: Int,imagePrefix: String) -> [UIImage]{
-        var imageArray = [UIImage]()
+    func setupAnimation(){
+        animationView.animation = Animation.named("running")
+        animationView.contentMode = .scaleToFill
+        animationView.loopMode = .loop
+        animationView.play()
         
-        for imageCount in 1..<total {
-            let imageName = "\(imagePrefix)-\(imageCount).png"
-            let image = UIImage(named: imageName)!
-            
-            imageArray.append(image)
+    }
+    
+    func calculateBmi(mass: Int, height: Int) -> String {
+        
+        let bmi = mass / ((height / 100) * 2)
+
+        switch bmi {
+        case 0..<19:
+            return "Gain weight"
+        case 19..<25:
+            return "Totally Fit"
+        case 25...:
+            return "Lose weight"
+        default:
+            return ""
         }
-        return imageArray
     }
     
-    private func animateWater(imageView: UIImageView,images: [UIImage]){
+    func configureView(){
+        stepView.layer.borderColor = UIColor.lightGray.cgColor
+        stepView.layer.borderWidth = 5.0
+        stepView.layer.cornerRadius = 77
         
-        imageView.animationImages = images
-        imageView.animationDuration = 3.0
-        imageView.animationRepeatCount = 1
-        imageView.startAnimating()
+        bmiView.layer.borderColor = UIColor.lightGray.cgColor
+        bmiView.layer.borderWidth = 5.0
+        bmiView.layer.cornerRadius = 77
+        
+        caloriesView.layer.borderColor = UIColor.lightGray.cgColor
+        caloriesView.layer.borderWidth = 5.0
+        caloriesView.layer.cornerRadius = 77
+        
+        bpmView.layer.borderColor = UIColor.lightGray.cgColor
+        bpmView.layer.borderWidth = 5.0
+        bpmView.layer.cornerRadius = 77
+        
+        
     }
 }

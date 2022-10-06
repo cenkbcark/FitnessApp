@@ -27,7 +27,7 @@ final class CourseCell: UICollectionViewCell {
         
         cell.layer.cornerRadius = 25
         cell.layer.borderWidth = 2
-        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderColor = UIColor.black.cgColor
     }
     
     
