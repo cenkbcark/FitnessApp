@@ -157,7 +157,7 @@
 		BC0ACCDF28E313F8001868E2 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
-				BCCFC0E128EC6ACF0013AFDB /* running.json */,
+				BC13AAA728EF5B2900EDD552 /* Delegates */,
 				BC18E19B28EB906B00587811 /* Extensions */,
 				BC0ACD2228E34245001868E2 /* Videos */,
 				BC0ACD1F28E33C19001868E2 /* Models */,
@@ -190,9 +190,8 @@
 		BC0ACD1028E314A5001868E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BCCFC0E128EC6ACF0013AFDB /* running.json */,
 				BC0ACCE928E313FD001868E2 /* Assets.xcassets */,
-				BC0ACCE028E313F8001868E2 /* AppDelegate.swift */,
-				BC0ACCE228E313F8001868E2 /* SceneDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -244,6 +243,15 @@
 				BC0ACD2328E34259001868E2 /* Yoga.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		BC13AAA728EF5B2900EDD552 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BC0ACCE228E313F8001868E2 /* SceneDelegate.swift */,
+				BC0ACCE028E313F8001868E2 /* AppDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		BC18E19828EB8FAC00587811 /* OnBoarding */ = {
