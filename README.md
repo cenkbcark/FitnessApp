@@ -25,6 +25,17 @@ AVKit - AVFoundation
 
 <h2>Screenshoots and Demo</h2>
 
+
+
+
+https://user-images.githubusercontent.com/79763515/194399648-6456ddc2-d40a-4715-9220-705633f5fce2.mp4
+
+
+
+
+
+
+
 <img width="391" alt="Ekran Resmi 2022-10-06 22 08 52" src="https://user-images.githubusercontent.com/79763515/194399286-503e743e-70ef-40c8-ae20-f6ff25b2f1bd.png">
 
 <img width="348" alt="Ekran Resmi 2022-10-06 22 10 45" src="https://user-images.githubusercontent.com/79763515/194399310-887d8872-8b74-40e0-934f-27bc6a214cc3.png">
