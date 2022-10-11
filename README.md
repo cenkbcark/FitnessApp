@@ -28,10 +28,6 @@ AVKit - AVFoundation
 
 
 
-https://user-images.githubusercontent.com/79763515/194399648-6456ddc2-d40a-4715-9220-705633f5fce2.mp4
-
-
-
 
 
 
